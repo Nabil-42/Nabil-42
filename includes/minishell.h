@@ -6,7 +6,7 @@
 /*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:48:52 by nabboud           #+#    #+#             */
-/*   Updated: 2024/08/05 10:08:14 by nabboud          ###   ########.fr       */
+/*   Updated: 2024/08/06 11:52:28 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_echo
 	int		j;
 	int		exval;
 	char	**tab;
+	int		k;
 
 }			t_echo;
 

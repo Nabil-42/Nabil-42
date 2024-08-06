@@ -6,7 +6,7 @@
 /*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 23:04:41 by nabil             #+#    #+#             */
-/*   Updated: 2024/08/05 11:04:35 by nabboud          ###   ########.fr       */
+/*   Updated: 2024/08/06 12:18:36 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	brut(t_general *g)
 		ft_fprintf(2, " Is a directory\n");
 		return (1);
 	}
-	if (ft_strncmp(g->line, "$EMPTY", 5) == 0)
+	if (ft_strcmp(g->line, "$EMPTY") == 0)
 	{
 		g->exval = 0;
 		return (1);
@@ -89,7 +89,7 @@ void	boucle(t_general *g)
 	{
 		tab = split_file(g->line, &i);
 		if (tab[0] == NULL)
-			return (free(tab), ft_fprintf(2, "4 error synthax\n"),(void)0);
+			return (free(tab), ft_fprintf(2, "4 error synthax\n"),(g->exval = 2), (void)0);
 		herdoc(g, tab[0]);
 		free_tab(tab);
 	}

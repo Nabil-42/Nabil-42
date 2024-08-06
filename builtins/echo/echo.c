@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:19:28 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 14:34:06 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/06 11:56:09 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,10 @@ void	echo(char **tab, t_echo *eko, t_general *g)
 
 	str = NULL;
 	tmp = NULL;
-	if (tab[1] && ft_strcmp(tab[1], "-n") == 0)
-		str = remake_str(tab, eko, 2);
+	if (tab[eko->k + 1] && ft_strcmp(tab[eko->k +1], "-n") == 0)
+		str = remake_str(tab, eko, eko->k + 2);
 	else
-		(str = remake_str(tab, eko, 1));
+		(str = remake_str(tab, eko, eko->k + 1));
 	if (!str)
 	{
 		g->flag_eko_n = 10;

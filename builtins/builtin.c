@@ -6,7 +6,7 @@
 /*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:54:43 by nabil             #+#    #+#             */
-/*   Updated: 2024/08/05 11:04:13 by nabboud          ###   ########.fr       */
+/*   Updated: 2024/08/06 11:56:40 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_eko(t_echo *eko, t_general *g)
 	eko->line = NULL;
 	eko->flag_i = 0;
 	eko->flag = 0;
+	eko->k = 0;
 }
 
 void	missingknow(t_echo *eko, t_general *g)
@@ -40,29 +41,34 @@ void	missingknow(t_echo *eko, t_general *g)
 int	execute_command(char **tab, t_echo *eko, t_env *local_env, t_general *g)
 {
 	(void)local_env;
-	if (ft_strcmp(tab[0], "echo") == 0 && ft_strcmp(tab[1], "$?") != 0)
+	if (ft_strcmp(tab[eko->k], "echo") == 0 && ft_strcmp(tab[eko->k + 1], "$?") != 0)
 		return (echo(g->petit_tab, eko, g), free_tab(eko->tab),
 			free_tab(g->petit_tab), 1);
-	if (ft_strcmp(tab[0], "echo") == 0 && ft_strcmp(tab[1], "$?") == 0)
+	if (ft_strcmp(tab[eko->k], "echo") == 0 && ft_strcmp(tab[eko->k + 1], "$?") == 0)
 		return (missingknow(eko, g), free_tab(eko->tab), free_tab(g->petit_tab),
 			1);
-	if (ft_strcmp(tab[0], "cd") == 0)
+	if (ft_strcmp(tab[eko->k], "cd") == 0)
 		return (cd_project(tab, g), free_tab(eko->tab), free_tab(g->petit_tab),
 			1);
-	if (ft_strcmp(tab[0], "pwd") == 0)
+	if (ft_strcmp(tab[eko->k], "pwd") == 0)
 		return (pwd(tab, g), free_tab(eko->tab), free_tab(g->petit_tab), 1);
-	if (ft_strcmp(tab[0], "env") == 0)
+	if (ft_strcmp(tab[eko->k], "env") == 0)
 		return (ft_env(g), free_tab(eko->tab),
 			free_tab(g->petit_tab), 1);
-	if (ft_strncmp("export",tab[0], 6) == 0)
+	if (ft_strncmp("export",tab[eko->k], 6) == 0)
 		return (ft_export(g, eko, g->petit_tab), free_tab(eko->tab),
 			free_tab(g->petit_tab), 1);
-	if (ft_strcmp(tab[0], "unset") == 0)
+	if (ft_strcmp(tab[eko->k], "unset") == 0)
 		return (ft_unset(g, tab), free_tab(eko->tab),
 			free_tab(g->petit_tab), 1);
-	if (ft_strcmp(tab[0], "exit") == 0)
+	if (ft_strcmp(tab[eko->k], "exit") == 0)
 		return (ft_exit(tab, g, eko), 1);
 	return (0);
+}
+void skip_empty(char **tab, int *i)
+{
+	while (strcmp(tab[*i], "$EMPTY") == 0)
+		++*i;
 }
 
 int	builtin(char *line, t_env *local_env, t_general *g)
@@ -79,14 +85,15 @@ int	builtin(char *line, t_env *local_env, t_general *g)
 	init_eko(&eko, g);
 	if (!eko.tab[0])
 		return (free_tab(g->petit_tab), free_tab(eko.tab), 0);
-	if (ft_strcmp(eko.tab[0], "echo") != 0 && ft_strcmp(eko.tab[0], "cd") != 0
-		&& ft_strcmp(eko.tab[0], "pwd") != 0 && ft_strcmp(eko.tab[0],
-			"env") != 0 && ft_strcmp(eko.tab[0], "exit") != 0
-		&& eko.tab[1] == NULL && ft_strncmp(eko.tab[0], "export", 6) != 0
-		&& ft_strncmp(eko.tab[0], "unset", 6) != 0)
+	skip_empty(eko.tab, &eko.k);
+	if (ft_strcmp(eko.tab[eko.k], "echo") != 0 && ft_strcmp(eko.tab[eko.k], "cd") != 0
+		&& ft_strcmp(eko.tab[eko.k], "pwd") != 0 && ft_strcmp(eko.tab[eko.k],
+			"env") != 0 && ft_strcmp(eko.tab[eko.k], "exit") != 0
+		&& eko.tab[eko.k +1] == NULL && ft_strncmp(eko.tab[eko.k], "export", 6) != 0
+		&& ft_strncmp(eko.tab[eko.k], "unset", 6) != 0)
 		return (free_tab(eko.tab), free_tab(g->petit_tab), 0);
-	if ((ft_strcmp(eko.tab[0], "echo") == 0 && eko.tab[1] == NULL)
-		|| (ft_strcmp(g->petit_tab[0], "echo") == 0 && g->petit_tab[1] == NULL))
+	if ((ft_strcmp(eko.tab[eko.k], "echo") == 0 && eko.tab[eko.k +1] == NULL)
+		|| (ft_strcmp(g->petit_tab[eko.k], "echo") == 0 && g->petit_tab[eko.k +1] == NULL))
 	{
 		g->flag_eko_n = 6;
 		free_tab(eko.tab);
