@@ -6,7 +6,7 @@
 /*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 23:04:41 by nabil             #+#    #+#             */
-/*   Updated: 2024/08/06 12:18:36 by nabboud          ###   ########.fr       */
+/*   Updated: 2024/08/06 14:10:49 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ int	brut(t_general *g)
 		g->exval = 0;
 		return (1);
 	}
+	g->tab_cmd = split_str(g->line, &g->nbr_dir, g);
+	g->tab_dir = split_delimiters(g->line, &g->nbr_dir);
+	g->tab_file = split_file(g->line, &g->nbr_file);
+	// printf("file %d dir = %d\n", g->nbr_file, g->nbr_dir);
+	// printf("%s\n", g->tab_file[0])
+	if (g->nbr_dir > g->nbr_file)
+	{
+		g->exval = 2;
+		ft_fprintf(2, "5 error synthax");
+		return (1);
+	}
+
 	return (0);
 }
 

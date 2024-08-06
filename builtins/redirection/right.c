@@ -6,7 +6,7 @@
 /*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:14:54 by nabil             #+#    #+#             */
-/*   Updated: 2024/08/05 11:07:08 by nabboud          ###   ########.fr       */
+/*   Updated: 2024/08/06 14:06:16 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ int	h_r_a_e(int saved_stdin, int saved_stdout, t_general *g, char *cmd)
 		return (1);
 	g->tab_dir = split_delimiters(cmd, &g->nbr_dir);
 	g->tab_file = split_file(cmd, &g->nbr_file);
+	if (g->nbr_dir > g->nbr_file)
+	{
+		g->exval = 2;
+		ft_fprintf(2, "6 error synthax");
+		return (1);
+	}
 	return (0);
 }
 
