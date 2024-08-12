@@ -6,7 +6,7 @@
 /*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:17:26 by tissad            #+#    #+#             */
-/*   Updated: 2024/08/03 20:58:18 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/11 21:45:02 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,41 @@ static void	ft_print_export(t_env *env);
 static void	rest_value(t_var *var, char *new_value);
 static void	join_value(t_var *var, char *new_value);
 
+char	**expand_export(t_general *g, t_echo *eko, char **args)
+{
+	int		i;
+	char	*tmp;
+	char	**expand_args;
+
+	tmp = remake_str(args, eko, 0);
+	expand_args = ft_split_quote(tmp);
+	free(tmp);
+	i = 0;
+	while (expand_args[i])
+	{
+		tmp = expand_hd(expand_args[i], g);
+		expand_args[i] = tmp;
+		i++;
+	}
+	return (expand_args);
+}
+
 void	ft_export(t_general *g, t_echo *eko, char **args)
 {
 	int		i;
 	t_var	*var;
-	char	*tmp;
+	char	**expand_args;
 
 	g->flag_eko_n = 3;
 	if (ft_strncmp("export", args[0], 6) == 0 && ft_strlen(args[0]) > 6)
 		return ;
-	tmp = remake_str(args, eko, 0);
-	args = get_args(tmp);
+	expand_args = expand_export(g, eko, args);
 	i = 1;
-	if (!args[i])
+	if (!expand_args[i])
 		return (ft_print_export(&g->local_env), (void)0);
-	while (args[i])
+	while (expand_args[i])
 	{
-		var = (t_var *)pars_var(args[i], "minishell: export:");
+		var = (t_var *)pars_var(expand_args[i], "minishell: export:");
 		if (!var)
 		{
 			i++;
@@ -44,6 +62,7 @@ void	ft_export(t_general *g, t_echo *eko, char **args)
 		add_var(&g->local_env, var);
 		i++;
 	}
+	free_tab(expand_args);
 }
 
 static void	ft_print_export(t_env *env)
@@ -98,7 +117,7 @@ static void	rest_value(t_var *var, char *new_value)
 
 static void	join_value(t_var *var, char *new_value)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = var->value;
 	var->value = ft_strjoin(tmp, new_value);

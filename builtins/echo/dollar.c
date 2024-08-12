@@ -6,7 +6,7 @@
 /*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:06:47 by nabil             #+#    #+#             */
-/*   Updated: 2024/07/30 19:13:52 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/11 22:38:31 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	handle_variable_expansion(char *str, t_echo *eko, int *i, t_general *g)
 	{
 		eko->line[eko->j++] = name[k++];
 	}
+	free(name);
 	return (1);
 }
 
@@ -106,7 +107,10 @@ int	dollar(char *str, t_echo *eko, t_general *g)
 			&& str[i + 1] != ' ')
 		{
 			if (!handle_variable_expansion(str, eko, &i, g))
-				++i;
+			{
+				if (str[i] != '\0')
+					++i;
+			}
 			continue ;
 		}
 		copy_normal_char(str, eko, &i, g);

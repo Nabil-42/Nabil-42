@@ -3,42 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   echo_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:07:16 by nabil             #+#    #+#             */
-/*   Updated: 2024/07/30 14:32:50 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/12 12:11:32 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <libft.h>
-
-int	echo_verif_1_bis(t_echo *eko, char *str, int *i, t_general *g)
-{
-	eko->flag_i = 0;
-	eko->flag = 0;
-	if ((str[*i] == '"'))
-	{
-		while (str[*i])
-		{
-			++*i;
-			if (str[*i] == '"')
-			{
-				echo_take_of_double_quote(str, eko, *i, g);
-				++*i;
-				eko->flag_i = 1;
-				eko->dir = *i;
-				eko->flag = 1;
-			}
-			if (eko->flag == 1)
-				break ;
-		}
-		if (eko->flag == 1)
-			return (2);
-		return (ft_fprintf(2, "minishell: %s: 1 Command not found ", str), 1);
-	}
-	return (0);
-}
 
 int	echo_verif_1(t_echo *eko, char *str, int *i, t_general *g)
 {

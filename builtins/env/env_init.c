@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   env_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:54:59 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 15:54:58 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/08 14:52:41 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include "env.h"
 #include "../../parsing/parsenv.h"
+#include "env.h"
 #include "minishell.h"
+#include <libft.h>
 
-t_var *create_var(char *key, int op, char *value)
+t_var	*create_var(char *key, int op, char *value)
 {
 	t_var	*var;
-	
+
 	var = malloc(sizeof(t_var) * 1);
 	if (!var)
 	{
@@ -50,15 +50,22 @@ static void	dup_env(t_env *local_env, char **envp)
 		{
 			delete_var(var);
 			i++;
-			continue;
+			continue ;
 		}
 		var->env_flag = true;
 		hash = hash_function(var->key, MAX_ENV);
-		new_var = ft_lstnew((void *) var);
+		new_var = ft_lstnew((void *)var);
 		ft_lstadd_back(&local_env->env_p[hash], new_var);
 		local_env->nb_var++;
 		i++;
 	}
+}
+
+static void	init_pwd(t_env *local_env)
+{
+	char	path[PATH_MAX];
+
+	ft_set_var(local_env, ft_strdup("PWD"), ft_strdup(getcwd(path, PATH_MAX)));
 }
 
 void	init_local_env(t_env *local_env, char **envp)
@@ -74,4 +81,5 @@ void	init_local_env(t_env *local_env, char **envp)
 	}
 	local_env->nb_var = 0;
 	dup_env(local_env, envp);
+	init_pwd(local_env);
 }

@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsargsenv.c                                      :+:      :+:    :+:   */
+/*   ft_split_quote.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 00:06:15 by tissad            #+#    #+#             */
-/*   Updated: 2024/08/12 11:15:35 by nabboud          ###   ########.fr       */
+/*   Created: 2024/07/05 23:04:41 by nabil             #+#    #+#             */
+/*   Updated: 2024/08/12 11:27:57 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
 #include <libft.h>
+#include <minishell.h>
+
+#include <stdlib.h>
+#include <string.h>
 
 static char	*skip_spc(char *str)
 {
@@ -28,38 +31,41 @@ static char	*extract_token_1(char **start)
 	char	*str;
 	int		i;
 	int		j;
+	char	quote;
 
 	str = *start;
 	i = 0;
 	j = 0;
 	while (str[i] && str[i] != ' ')
 	{
-		if (str[i] && (str[i] == '\"' || str[i] == '\''))
+		if (str[i] == '\"' || str[i] == '\'')
 		{
-			i++;
-			while (str[i] && (str[i] == '\"' || str[i] == '\''))
+			quote = str[i++];
+			token[j++] = quote;
+			while (str[i] && str[i] != quote)
 				token[j++] = str[i++];
+			if (str[i] == quote)
+				token[j++] = str[i++]; 
 		}
-		if (str[i] && (str[i] == '\"' || str[i] == '\'') && str[i] != ' ')
-			token[j++] = str[i];
-		i++;
+		else if (str[i] != ' ')
+			token[j++] = str[i++];
 	}
 	token[j] = '\0';
 	*start = &str[i];
-	return (ft_strdup(token));
+	return (strdup(token));
 }
 
 static char	**init_args(int nb)
 {
 	char	**args;
 
-	args = malloc(sizeof (char *) * nb);
+	args = malloc(sizeof(char *) * nb);
 	if (!args)
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	return (args);
 }
 
-char	**get_args(char *str)
+char	**ft_split_quote(char *str)
 {
 	int		index;
 	char	*start;
@@ -79,3 +85,4 @@ char	**get_args(char *str)
 	args[index] = NULL;
 	return (args);
 }
+

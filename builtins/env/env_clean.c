@@ -6,7 +6,7 @@
 /*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:56:37 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 18:47:39 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/09 21:17:04 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	del(void *content)
 
 	var = (t_var *)content;
 	delete_var(var);
-	//free(content);
 	content = NULL;
 }
 
@@ -40,6 +39,7 @@ void	delete_env(t_env *env)
 		ft_lstclear(&env->env_p[i], del);
 		i++;
 	}
+	env->nb_var = 0;
 }
 
 void	delete_envp(char **envp)

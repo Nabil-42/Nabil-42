@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:19:28 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/07 21:38:34 by nabboud          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:41:35 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 
 void	pwd(char **tab, t_general *g)
 {
-	char	*path;
-
 	(void)tab;
 	g->flag_eko_n = 4;
-	path = malloc(sizeof(char) * PATH_MAX);
-	getcwd(path, PATH_MAX);
-	g->path = path;
+	g->path = ft_getenv(&g->local_env, "PWD");
 }

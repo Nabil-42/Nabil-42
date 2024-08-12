@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dollar_double.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:19:28 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 14:36:23 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/12 12:04:57 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ char	*extract_variable_name(char *str, t_echo *eko)
 	return (variable_env);
 }
 
-int	expand_variable(char *variable_env, t_echo *eko)
+int	expand_variable(char *variable_env, t_echo *eko, t_general *g)
 {
 	char	*name;
 	int		k;
 
-	name = getenv(variable_env);
+	name = ft_getenv(&g->local_env, variable_env);
 	if (name == NULL)
 		return (-1);
 	k = 0;
@@ -50,10 +50,11 @@ int	expand_variable(char *variable_env, t_echo *eko)
 		++eko->j;
 		++k;
 	}
+	free(name);
 	return (1);
 }
 
-int	dollar_double(char *str, t_echo *eko)
+int	dollar_double(char *str, t_echo *eko, t_general *g)
 {
 	char	*variable_env;
 	int		result;
@@ -72,10 +73,11 @@ int	dollar_double(char *str, t_echo *eko)
 	variable_env = extract_variable_name(str, eko);
 	if (variable_env == NULL)
 		return (0);
-	result = expand_variable(variable_env, eko);
+	result = expand_variable(variable_env, eko, g);
 	free(variable_env);
 	return (result);
 }
+
 int	dollar_bis(char *str, t_echo *eko, t_general *g)
 {
 	int	i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 23:04:41 by nabil             #+#    #+#             */
-/*   Updated: 2024/08/06 14:10:49 by nabboud          ###   ########.fr       */
+/*   Created: 2024/08/08 14:25:49 by nabboud           #+#    #+#             */
+/*   Updated: 2024/08/11 21:49:39 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,6 @@ int	brut(t_general *g)
 		g->exval = 0;
 		return (1);
 	}
-	g->tab_cmd = split_str(g->line, &g->nbr_dir, g);
-	g->tab_dir = split_delimiters(g->line, &g->nbr_dir);
-	g->tab_file = split_file(g->line, &g->nbr_file);
-	// printf("file %d dir = %d\n", g->nbr_file, g->nbr_dir);
-	// printf("%s\n", g->tab_file[0])
-	if (g->nbr_dir > g->nbr_file)
-	{
-		g->exval = 2;
-		ft_fprintf(2, "5 error synthax");
-		return (1);
-	}
-
 	return (0);
 }
 
@@ -83,9 +71,9 @@ void	full_free(t_general *g)
 		(free_tab(g->tab_cmd), g->tab_cmd = NULL);
 	if (g->tab_pipe)
 		(free_tab(g->tab_pipe), g->tab_pipe = NULL);
-	if (g->handle_eko)
+	if (g->handle_eko != NULL)
 		(free(g->handle_eko), g->handle_eko = NULL);
-	if (g->handle_ikou)
+	if (g->handle_ikou != NULL)
 		(free(g->handle_ikou), g->handle_ikou = NULL);
 }
 
@@ -101,23 +89,18 @@ void	boucle(t_general *g)
 	{
 		tab = split_file(g->line, &i);
 		if (tab[0] == NULL)
-			return (free(tab), ft_fprintf(2, "4 error synthax\n"),(g->exval = 2), (void)0);
-		herdoc(g, tab[0]);
-		free_tab(tab);
+			return (free(tab), ft_fprintf(2, "4 error synthax\n"),
+				(g->exval = 2), (void)0);
+		g_flag = 2;
+		return (pipe_while_bis(g, tab), free_tab(tab), free_tab(g->tab_pipe));
 	}
 	if (brut(g))
-	{
-		free_tab(g->tab_pipe);
-		return ;
-	}
+		return (free_tab(g->tab_pipe));
 	if (g->nbr_pipe != 0)
-	{
 		execute_pipeline(g->tab_pipe, g);
-	}
 	else
-	{
-		handle_redirections_and_execute(g->line, g);
-	}
+		(handle_redirections_and_execute(g->line, g));
+	//delete env
 	full_free(g);
 }
 
@@ -130,10 +113,6 @@ void	init_tab(t_general *g)
 	g->nbr_dir = count_redirections(g->line);
 	boucle(g);
 	free(g->line);
-	// if (g_flag == 2)
-	// 	g->exval = 130;
-	// if (g_flag == 3)
-	// 	g->exval = 131;
 	g_flag = 0;
 	unlink("heredoc_temp.txt");
 }

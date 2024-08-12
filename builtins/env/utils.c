@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:17:26 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 18:43:13 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/08 14:54:15 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ unsigned int	hash_function(const char *key, unsigned int table_size)
 	hash = 2166136261U;
 	while (*key)
 	{
-		hash ^= (uint8_t)*key++;
+		hash ^= (uint8_t) * key++;
 		hash *= fnv_prime;
 	}
 	return (hash % table_size);

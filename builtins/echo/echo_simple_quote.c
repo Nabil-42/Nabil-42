@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo_simple_quote.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:19:28 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 14:33:59 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/12 12:07:48 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	echo_take_of_simple_quote(char *str, t_echo *eko, int n, t_general *g)
 			return (0);
 		if (flag == 0)
 		{
-			dollar_check = dollar_double(str, eko);
+			dollar_check = dollar_double(str, eko, g);
 			if (dollar_check == -1)
 				return (eko->line[eko->j] = '\0', -1);
 			if (dollar_check > 0)

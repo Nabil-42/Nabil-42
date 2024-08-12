@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:17:26 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 16:34:14 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/08 14:53:54 by nabboud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	ft_unset(t_general *g, char **args)
 		i++;
 	}
 }
+
 static int	cond(void *key, void *content)
 {
-	t_var *var;
+	t_var	*var;
 
 	var = (t_var *)content;
 	return (var->env_flag && ft_strncmp(key, var->key, ft_strlen(key)));

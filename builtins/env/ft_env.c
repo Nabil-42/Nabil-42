@@ -6,7 +6,7 @@
 /*   By: tissad <tissad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:17:26 by tissad            #+#    #+#             */
-/*   Updated: 2024/07/30 19:14:07 by tissad           ###   ########.fr       */
+/*   Updated: 2024/08/12 00:27:53 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ static char	*tvar_to_str(t_var *var);
 
 void	ft_env(t_general *g)
 {
-	char	**local_env;
+	char	**localenv;
 	int		i;
 
 	g->flag_eko_n = 3;
-	local_env = get_local_env(&g->local_env);
+	localenv = get_local_env(&g->local_env);
 	i = 0;
-	while (local_env[i])
+	while (localenv[i])
 	{
-		if (local_env[i])
-			printf("%s\n", local_env[i]);
+		if (localenv[i])
+			printf("%s\n", localenv[i]);
 		i++;
 	}
-	delete_envp(local_env);
-	free(local_env);
+	delete_envp(localenv);
+	free(localenv);
 }
 
 char	*ft_getenv(t_env *env, char *key)
@@ -46,7 +46,7 @@ char	*ft_getenv(t_env *env, char *key)
 		var = (t_var *)(lst_iter->content);
 		if (ft_strcmp(key, var->key) == 0)
 		{
-			return (var->value);
+			return (ft_strdup(var->value));
 		}
 		lst_iter = lst_iter->next;
 	}
@@ -84,8 +84,8 @@ char	**get_local_env(t_env *env)
 
 static char	*tvar_to_str(t_var *var)
 {
-	char *str;
-	char *tmp;
+	char	*str;
+	char	*tmp;
 
 	tmp = ft_strjoin(var->key, "=");
 	str = ft_strjoin(tmp, var->value);
