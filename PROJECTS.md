@@ -7,22 +7,22 @@ All projects completed as part of the **42 Paris** curriculum (Common Core + AIS
 | Project | Circle | Status | Grade | Link |
 |---------|--------|--------|-------|------|
 | Libft | 0 | ✅ Done | — | [private] |
-| ft_printf | 1 | ✅ Done | — | [printf](https://github.com/Nabil-42/printf) |
-| get_next_line | 1 | ✅ Done | — | [get_next_line](https://github.com/Nabil-42/get_next_line) |
-| push_swap | 2 | ✅ Done | — | [push_swap](https://github.com/Nabil-42/push_swap) |
-| so_long | 2 | ✅ Done | — | [so_long](https://github.com/Nabil-42/so_long) |
-| minitalk | 3 | ✅ Done | — | [minitalk](https://github.com/Nabil-42/minitalk) |
-| Philosophers | 3 | ✅ Done | — | [philosopher](https://github.com/Nabil-42/philosopher) |
-| minishell | 3 | ✅ Done | — | [minishell](https://github.com/Nabil-42/minishell) |
-| CPP Module 01 | 4 | ✅ Done | — | [cpp1](https://github.com/Nabil-42/cpp1) |
-| CPP Module 02 | 4 | ✅ Done | — | [cpp2](https://github.com/Nabil-42/cpp2) |
-| CPP Module 03 | 4 | ✅ Done | — | [cpp3](https://github.com/Nabil-42/cpp3) |
-| CPP Module 04 | 4 | ✅ Done | — | [cpp4](https://github.com/Nabil-42/cpp4) |
-| CPP Module 05 | 4 | ✅ Done | — | [cpp5](https://github.com/Nabil-42/cpp5) |
-| CPP Module 06 | 4 | ✅ Done | — | [cpp6](https://github.com/Nabil-42/cpp6) |
-| CPP Module 07 | 4 | ✅ Done | — | [cpp7](https://github.com/Nabil-42/cpp7) |
-| CPP Module 08 | 4 | ✅ Done | — | [cpp8](https://github.com/Nabil-42/cpp8) |
-| CPP Module 09 | 4 | ✅ Done | — | [cpp9](https://github.com/Nabil-42/cpp9) |
+| ft_printf | 1 | ✅ Done | — | [ft_printf](https://github.com/Nabil-42/ft_printf) |
+| ft_get_next_line | 1 | ✅ Done | — | [ft_get_next_line](https://github.com/Nabil-42/ft_get_next_line) |
+| ft_push_swap | 2 | ✅ Done | — | [ft_push_swap](https://github.com/Nabil-42/ft_push_swap) |
+| ft_so_long | 2 | ✅ Done | — | [ft_so_long](https://github.com/Nabil-42/ft_so_long) |
+| ft_minitalk | 3 | ✅ Done | — | [ft_minitalk](https://github.com/Nabil-42/ft_minitalk) |
+| ft_philosophers | 3 | ✅ Done | — | [ft_philosophers](https://github.com/Nabil-42/ft_philosophers) |
+| ft_minishell | 3 | ✅ Done | — | [ft_minishell](https://github.com/Nabil-42/ft_minishell) |
+| C++ Module 01 | 4 | ✅ Done | — | [cpp_module_01](https://github.com/Nabil-42/cpp_module_01) |
+| C++ Module 02 | 4 | ✅ Done | — | [cpp_module_02](https://github.com/Nabil-42/cpp_module_02) |
+| C++ Module 03 | 4 | ✅ Done | — | [cpp_module_03](https://github.com/Nabil-42/cpp_module_03) |
+| C++ Module 04 | 4 | ✅ Done | — | [cpp_module_04](https://github.com/Nabil-42/cpp_module_04) |
+| C++ Module 05 | 4 | ✅ Done | — | [cpp_module_05](https://github.com/Nabil-42/cpp_module_05) |
+| C++ Module 06 | 4 | ✅ Done | — | [cpp_module_06](https://github.com/Nabil-42/cpp_module_06) |
+| C++ Module 07 | 4 | ✅ Done | — | [cpp_module_07](https://github.com/Nabil-42/cpp_module_07) |
+| C++ Module 08 | 4 | ✅ Done | — | [cpp_module_08](https://github.com/Nabil-42/cpp_module_08) |
+| C++ Module 09 | 4 | ✅ Done | — | [cpp_module_09](https://github.com/Nabil-42/cpp_module_09) |
 | Inception | 5 | ✅ Done | — | [Inception](https://github.com/Nabil-42/Inception) |
 | ft_transcendence | 6 | 🔄 In progress | — | — |
 

@@ -1,0 +1,76 @@
+# Query: delete_env
+# ContextLines: 1
+
+16 results - 8 files
+
+main.c:
+   65  	{
+   66: 		(full_free(g), free_tab(args));
+   67  		return (free_tab(envp), exit(g->exval), 0);
+
+   72  	{
+   73: 		(ft_fprintf(2, "syntax error\n"));
+   74  		(full_free(g), free_tab(args), free_tab(envp), free(path_cmd));
+
+  133  	}
+  134
+  135  	rl_clear_history();
+
+builtins/exit.c:
+  49  		(free_tab(eko->tab), free_tab(g->petit_tab));
+  50: 		(full_free(g), exit(g->exval));
+  51  	}
+
+  54  		(free_tab(eko->tab), free_tab(g->petit_tab));
+  55: 		(full_free(g));
+  56  		(ft_fprintf(2, "exit: too many arguments\n"), exit(1));
+
+  60  		(free_tab(eko->tab), free_tab(g->petit_tab));
+  61: 		(full_free(g));
+  62  		(ft_fprintf(2, "exit: numeric argument required\n"));
+
+  66  	(free_tab(eko->tab), free_tab(g->petit_tab));
+  67: 	(full_free(g));
+  68  	exit(exit_code % 256);
+
+builtins/env/env_clean.c:
+  31  
+  32: void	delete_env(t_env *env)
+  33  {
+
+  44  
+  45: void	delete_envp(char **envp)
+  46  {
+
+builtins/env/env.h:
+  19  /*env_clean*/
+  20: void			delete_envp(char **envp);
+  21  void			delete_var(t_var *var);
+
+builtins/env/ft_env.c:
+  32  	}
+  33: 	delete_envp(local_env);
+  34  	free(local_env);
+
+builtins/redirection/right.c:
+   87  	if (h_r_a_e(saved_stdin, saved_stdout, g, cmd))
+   88: 		return (full_free(g), 1);
+   89  	while (g->i_right < g->nbr_file)
+
+   92  		if (h_r_a_e_bis(fd, saved_stdout, saved_stdin, g))
+   93: 			return (close(fd), full_free(g), 1);
+   94  		close(fd);
+
+  100  	restore_standard_fds(saved_stdout, saved_stdin, g);
+  101: 	return (full_free(g), handle);
+  102  }
+
+includes/minishell.h:
+  142  void		init_local_env(t_env *local_env, char **envp);
+  143: void		delete_env(t_env *env);
+  144  void		ft_set_var(t_env *env, char *key, char *value);
+
+utils/init.c:
+  102  		(handle_redirections_and_execute(g->line, g));
+  103: 
+  104  	full_free(g);
