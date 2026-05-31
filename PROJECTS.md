@@ -14,16 +14,7 @@ All projects completed as part of the **42 Paris** curriculum (Common Core + AIS
 | minitalk | 3 | ✅ Done | — | [minitalk](https://github.com/Nabil-42/minitalk) |
 | philosophers | 3 | ✅ Done | — | [philosophers](https://github.com/Nabil-42/philosophers) |
 | minishell | 3 | ✅ Done | — | [minishell](https://github.com/Nabil-42/minishell) |
-| C++ Module 00 | 4 | ✅ Done | — | [cpp_module_00](https://github.com/Nabil-42/cpp_module_00) |
-| C++ Module 01 | 4 | ✅ Done | — | [cpp_module_01](https://github.com/Nabil-42/cpp_module_01) |
-| C++ Module 02 | 4 | ✅ Done | — | [cpp_module_02](https://github.com/Nabil-42/cpp_module_02) |
-| C++ Module 03 | 4 | ✅ Done | — | [cpp_module_03](https://github.com/Nabil-42/cpp_module_03) |
-| C++ Module 04 | 4 | ✅ Done | — | [cpp_module_04](https://github.com/Nabil-42/cpp_module_04) |
-| C++ Module 05 | 4 | ✅ Done | — | [cpp_module_05](https://github.com/Nabil-42/cpp_module_05) |
-| C++ Module 06 | 4 | ✅ Done | — | [cpp_module_06](https://github.com/Nabil-42/cpp_module_06) |
-| C++ Module 07 | 4 | ✅ Done | — | [cpp_module_07](https://github.com/Nabil-42/cpp_module_07) |
-| C++ Module 08 | 4 | ✅ Done | — | [cpp_module_08](https://github.com/Nabil-42/cpp_module_08) |
-| C++ Module 09 | 4 | ✅ Done | — | [cpp_module_09](https://github.com/Nabil-42/cpp_module_09) |
+| C++ Modules 00-09 | 4 | Done | - | [cpp_modules](https://github.com/Nabil-42/cpp_modules) |
 | webserv | 5 | ✅ Done | — | [webserv](https://github.com/Nabil-42/webserv) |
 | Inception | 5 | ✅ Done | — | [inception](https://github.com/Nabil-42/inception) |
 | ft_transcendence | 6 | ✅ Done | — | [ft_transcendence](https://github.com/Nabil-42/ft_transcendence) |
