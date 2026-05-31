@@ -18,7 +18,7 @@
 
 I am a career-changer completing the **42 Paris engineering curriculum** (Promo 2023), specializing in **infrastructure, networking, and cybersecurity**.
 
-Certification: **RNCP 39774 - Expert en architecture informatique (niveau 7)**
+Currently pursuing: **RNCP 39774 - Expert en architecture informatique (niveau 7)**
 
 ---
 
@@ -67,5 +67,5 @@ See [infra-notes](https://github.com/Nabil-42/infra-notes) for full documentatio
 ---
 
 <div align="center">
-<sub>Ecole 42 Paris - RNCP 39774 - Promo 2023</sub>
+<sub>Ecole 42 Paris - Promo 2023</sub>
 </div>
