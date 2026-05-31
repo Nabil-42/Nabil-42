@@ -16,7 +16,7 @@
 
 ## About Me
 
-I am a career-changer currently completing the **42 Paris engineering curriculum** (promo 2024/2025), specializing in **infrastructure, networking, and cybersecurity** (RNCP37680 — AIS pathway).
+I am a career-changer currently completing the **42 Paris engineering curriculum**, specializing in **infrastructure, networking, and cybersecurity** (RNCP37680 — AIS pathway).
 
 Before 42, I worked in a non-technical field. I chose to retrain into IT with a strong focus on systems and networks, driven by a hands-on approach to learning.
 
