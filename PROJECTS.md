@@ -6,7 +6,7 @@ All projects completed as part of the **42 Paris** curriculum (Common Core + AIS
 
 | Project | Circle | Status | Grade | Link |
 |---------|--------|--------|-------|------|
-| Libft | 0 | ✅ Done | — | [private] |
+| libft | 0 | ✅ Done | — | [libft](https://github.com/Nabil-42/libft) |
 | ft_printf | 1 | ✅ Done | — | [ft_printf](https://github.com/Nabil-42/ft_printf) |
 | ft_get_next_line | 1 | ✅ Done | — | [ft_get_next_line](https://github.com/Nabil-42/ft_get_next_line) |
 | push_swap | 2 | ✅ Done | — | [push_swap](https://github.com/Nabil-42/push_swap) |
@@ -14,6 +14,7 @@ All projects completed as part of the **42 Paris** curriculum (Common Core + AIS
 | minitalk | 3 | ✅ Done | — | [minitalk](https://github.com/Nabil-42/minitalk) |
 | philosophers | 3 | ✅ Done | — | [philosophers](https://github.com/Nabil-42/philosophers) |
 | minishell | 3 | ✅ Done | — | [minishell](https://github.com/Nabil-42/minishell) |
+| C++ Module 00 | 4 | ✅ Done | — | [cpp_module_00](https://github.com/Nabil-42/cpp_module_00) |
 | C++ Module 01 | 4 | ✅ Done | — | [cpp_module_01](https://github.com/Nabil-42/cpp_module_01) |
 | C++ Module 02 | 4 | ✅ Done | — | [cpp_module_02](https://github.com/Nabil-42/cpp_module_02) |
 | C++ Module 03 | 4 | ✅ Done | — | [cpp_module_03](https://github.com/Nabil-42/cpp_module_03) |
