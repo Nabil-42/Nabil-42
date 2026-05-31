@@ -24,7 +24,7 @@ All projects completed as part of the **42 Paris** curriculum (Common Core + AIS
 | C++ Module 08 | 4 | ✅ Done | — | [cpp_module_08](https://github.com/Nabil-42/cpp_module_08) |
 | C++ Module 09 | 4 | ✅ Done | — | [cpp_module_09](https://github.com/Nabil-42/cpp_module_09) |
 | Inception | 5 | ✅ Done | — | [inception](https://github.com/Nabil-42/inception) |
-| ft_transcendence | 6 | 🔄 In progress | — | — |
+| ft_transcendence | 6 | ✅ Done | — | [ft_transcendence](https://github.com/Nabil-42/ft_transcendence) |
 
 ## AIS Specialization (RNCP37680)
 
