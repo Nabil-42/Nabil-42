@@ -2,7 +2,7 @@
 
 # Nabil Abboud — Nabil-42
 
-**École 42 Paris · Promo 2024/2025**
+**École 42 Paris · Promo 2023**
 
 [![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=white)](https://github.com/Nabil-42)
 [![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)](https://github.com/Nabil-42)
