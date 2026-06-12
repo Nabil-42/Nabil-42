@@ -14,7 +14,7 @@ All projects completed as part of the **42 Paris** curriculum (Common Core + AIS
 | minitalk | 3 | ✅ Done | — | [minitalk](https://github.com/Nabil-42/minitalk) |
 | philosophers | 3 | ✅ Done | — | [philosophers](https://github.com/Nabil-42/philosophers) |
 | minishell | 3 | ✅ Done | — | [minishell](https://github.com/Nabil-42/minishell) |
-| C++ Modules 00-09 | 4 | ✅ Done | - | [cpp_modules](https://github.com/Nabil-42/cpp_modules) |
+| C++ Modules 00-09 | 4 | ✅ Done | — | [cpp_modules](https://github.com/Nabil-42/cpp_modules) |
 | webserv | 5 | ✅ Done | — | [webserv](https://github.com/Nabil-42/webserv) |
 | Inception | 5 | ✅ Done | — | [inception](https://github.com/Nabil-42/inception) |
 | ft_transcendence | 6 | ✅ Done | — | [ft_transcendence](https://github.com/Nabil-42/ft_transcendence) |
